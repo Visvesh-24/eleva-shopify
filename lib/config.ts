@@ -36,7 +36,7 @@ export const siteConfig = {
   },
 
   announcements: [
-    { text: "✦ Holiday Edit · Free shipping over $150", href: "/collections/gift-and-share" },
+    { text: "✦ Holiday Edit · Free shipping $150+", href: "/collections/gift-and-share" },
     { text: "10% off your first order when you join the list", href: "#newsletter" },
     { text: "Corporate gifting orders close November 20", href: "/corporate-gifts" },
   ],

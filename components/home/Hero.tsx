@@ -29,7 +29,7 @@ export function Hero() {
             <Sparkle className="h-3 w-3 animate-twinkle" /> The Holiday Edit 2026
           </p>
           <h1 id="hero-title" className="mt-5 font-serif text-[2.9rem] leading-[0.98] tracking-[-0.015em] sm:text-6xl lg:text-[5rem]">
-            Unwrap Mexico&rsquo;s <em className="text-gold italic">finest</em>.
+            Pour something <em className="text-gold italic">unforgettable</em>.
           </h1>
           <p className="mx-auto mt-4 max-w-[22rem] text-[1rem] leading-snug text-ink-soft sm:max-w-md sm:text-lg lg:mx-0">
             Additive-free tequila, hand-picked by Canada&rsquo;s only Tequila Master.
