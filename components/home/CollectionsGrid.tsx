@@ -25,7 +25,7 @@ export function CollectionsGrid({ collections }: { collections: Collection[] }) 
         title="Find your bottle"
         intro="Six ways into the world of agave, each chosen by a master."
       />
-      <ul className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 lg:grid-cols-3">
+      <ul className="no-scrollbar relative -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 lg:grid-cols-3">
         {collections.map((c, i) => (
           <FadeIn as="li" key={c.handle} delay={(i % 3) * 0.06} className="w-[78%] shrink-0 snap-start sm:w-[46%] md:w-auto">
             <Link href={`/collections/${c.handle}`} className="group block h-full">

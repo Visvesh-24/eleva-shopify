@@ -29,6 +29,29 @@ All prices are mock CAD values (the live site was not reachable from the build e
 - [ ] Tasting notes, serve suggestions and pairings are draft copy for Adriana to approve
 - [ ] Best-seller order on the homepage (`app/page.tsx`)
 
+## Experiences, events and trade (`lib/experiences.ts`)
+
+- [ ] Masterclass sessions: dates, times, venues, prices ($85–$110 per guest) and **seats left** (drives "Only X seats left") are mock ⚠️
+- [ ] Masterclass format details (duration, group sizes, light bites, virtual kits) and "from" prices on the audience cards
+- [ ] Events: all three upcoming events, venues ("TBC"), prices and dates are mock ⚠️
+- [ ] Past-events gallery uses brand photography; replace with real event photos
+- [ ] Corporate gift tiers: names, price ranges and minimums are mock ⚠️
+- [ ] Corporate proof timeline ("approve within 3 business days") is mock
+- [ ] Trade pricing is a flat 20% off retail (`TRADE_DISCOUNT`), illustrative only ⚠️
+- [ ] Trade claims: "reviewed within two business days", "free tastings for licensed venues in the GTA", minimum one mixed case of 6
+- [ ] Quick Reorder shows a demo account ("Casa Verde Cocina") with mock order history; replace with the Shopify B2B / customer account integration
+- [ ] Product reviews on product pages are mock (`lib/reviews.ts`) ⚠️
+
+## Policies and help content
+
+- [ ] All FAQ answers (`lib/faqs.ts`), especially shipping areas (currently "within Ontario"), delivery times, returns window (48 hours) and corporate minimums ⚠️
+- [ ] Shipping & Returns page: draft policy, confirm every line ⚠️
+- [ ] Privacy Policy and Terms of Service: placeholder templates, need legal review (PIPEDA, CASL) ⚠️
+- [ ] Contact page: business hours ("Mon–Sat 10–6, to be confirmed"), tasting-room address, and a real Google Maps embed (currently an illustrated placeholder)
+- [ ] About page story and certification copy (draft); add certifying body and year
+- [ ] Recipes and guides copy for Adriana to review
+- [ ] Product "Origin" detail shows "Mexico (D.O. Tequila)"; confirm region per producer
+
 ## Store settings (`lib/config.ts`)
 
 - [ ] Free-shipping threshold: **$150** (mock) ⚠️
@@ -70,6 +93,9 @@ All prices are mock CAD values (the live site was not reachable from the build e
 - [ ] Privacy Policy and Terms content (phase 4 pages will be placeholders)
 
 ## Integrations (post-demo)
+
+- [ ] Every form is front-end only (corporate quote, masterclass booking, event RSVP, contact, trade application, trade order, reorder, account sign-in/register, newsletter). Wire each to email/CRM/Shopify; all already fire `form_submit` analytics events
+- [ ] Corporate quote logo upload: needs storage (e.g. Shopify Files, S3) when wired
 
 - [ ] Shopify Storefront API (see README, "Shopify migration path")
 - [ ] Checkout redirect to Shopify (`CartProvider.checkout`)

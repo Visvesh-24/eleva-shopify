@@ -43,7 +43,7 @@ export function Rail({ children, label, className }: { children: ReactNode; labe
       <ul
         ref={ref}
         aria-label={label}
-        className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 pb-2 md:-mx-0 md:gap-6 md:px-0"
+        className="no-scrollbar relative -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 pb-2 md:-mx-0 md:gap-6 md:px-0"
       >
         {children}
       </ul>

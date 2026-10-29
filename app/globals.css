@@ -49,6 +49,8 @@
     text-wrap: balance;
   }
   p { text-wrap: pretty; }
+  /* Let grid items shrink below their content width (prevents mobile overflow). */
+  .grid > * { min-width: 0; }
   ::selection { background: rgb(var(--c-copper-light) / 0.35); }
 
   :focus-visible {
@@ -115,3 +117,14 @@
 /* Age gate: hidden once verified (attribute set by inline script before paint). */
 html[data-age-ok] #age-gate { display: none; }
 html:not([data-age-ok]) body { overflow: hidden; }
+
+/* Long-form content (policies, guides) */
+@layer components {
+  .prose-eleva { @apply max-w-3xl text-[1.0625rem] leading-relaxed text-ink-soft; }
+  .prose-eleva h2 { @apply mb-4 mt-12 font-serif text-3xl text-ink first:mt-0; }
+  .prose-eleva h3 { @apply mb-2 mt-8 font-serif text-2xl text-ink; }
+  .prose-eleva p { @apply mb-4; }
+  .prose-eleva ul { @apply mb-4 list-disc space-y-2 pl-5 marker:text-copper; }
+  .prose-eleva a { @apply text-ink underline underline-offset-4 hover:text-copper; }
+  .prose-eleva strong { @apply font-semibold text-ink; }
+}

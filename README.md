@@ -4,7 +4,24 @@ Front-end-only, Shopify-style storefront for **Eleva Imports**, Toronto importer
 
 Built with **Next.js 15 (App Router) + TypeScript + Tailwind CSS**. Framer Motion is used only for subtle fades, hover states and drawers.
 
-> Status: **Phase 1** (design system, header/footer, homepage, cart drawer, search overlay, age gate). Collection/product pages, Corporate Gifts and the remaining pages follow in phases 2–4. Links to those pages return the on-brand 404 until then.
+> Status: **All pages built.** Homepage, collections (with filters/sort), product pages, cart drawer, search, checkout stub, Corporate Gifts, Masterclass, Events, Recipes & Resources, About, For Restaurants & Bars (program, trade ordering, quick reorder), Contact, FAQ, Shipping & Returns, Privacy, Terms, Account, 404, sitemap and robots. Every internal link is crawled and returns 200.
+
+## Sitemap
+
+| Route | Page |
+| --- | --- |
+| `/` | Homepage |
+| `/collections/[handle]` | All Products (`all`), Sip Neat, Mix & Pour, Gift & Share, Start Here, Boutique Tequila Collection, Corporate Gifts, Glassware, Cream Liqueurs, Gift Sets. Filters: `?collection= &type= &budget= &size= &taste= &sort=` |
+| `/products/[slug]` | Product page (gallery + zoom, variants, gift options, tasting notes, reviews, frequently bought together, sticky mobile Add to cart, Product JSON-LD) |
+| `/search?q=` | Search results |
+| `/checkout` | Checkout stub (hands off to Shopify after migration) |
+| `/corporate-gifts` | Corporate gifting landing + quote form + logo preview |
+| `/masterclass` | Masterclass info, sessions, booking selector |
+| `/events` | Upcoming events with RSVP, past-event gallery |
+| `/recipes` | Recipes with "Shop this cocktail", tequila guides |
+| `/about` | Brand story |
+| `/trade`, `/trade/ordering`, `/trade/reorder` | For Restaurants & Bars |
+| `/contact`, `/faq`, `/shipping-returns`, `/privacy`, `/terms`, `/account` | Support pages |
 
 ## Run it
 
@@ -29,15 +46,18 @@ components/
   layout/               AnnouncementBar, Header (+ mega menu), MobileMenu, SearchOverlay, Footer, AgeGate, WhatsAppButton
   home/                 One component per homepage section
   shop/                 ProductCard, ProductImage (+ placeholder art), CartProvider, CartDrawer, AddToCartButton…
-  forms/                NewsletterForm (front-end validation only)
-  ui/                   Icons, Section/SectionHeading, FadeIn, Drawer (focus-trapped), Rail, Rating
+  forms/                Form primitives (useForm, fields) + every form: corporate quote, logo preview,
+                        masterclass booking, event RSVP, contact, trade, account, newsletter
+  ui/                   Icons, Section/SectionHeading, PageHeader, Breadcrumbs (+JSON-LD), Accordion
+                        (native details, FAQ JSON-LD), CTABand, FadeIn, Drawer (focus-trapped), Rail, Rating
 lib/
   products.ts           Typed product catalog + async accessors (the only way UI reads products)
   collections.ts        Collections + accessors
   config.ts             Store settings: contact, free-shipping threshold, corporate deadline…
   analytics.ts          window.dataLayer event layer (view_item, add_to_cart, begin_checkout, form_submit, search)
   filters.ts            Budget / recipient / taste definitions shared by gift finder and collection filters
-  recipes.ts, content.ts, navigation.ts, search.ts, format.ts
+  experiences.ts        Masterclass sessions, events, corporate tiers, trade account (all mock)
+  faqs.ts, guides.ts, reviews.ts, recipes.ts, content.ts, navigation.ts, search.ts, format.ts
 public/images/
   products/             Product cut-outs (PNG, 1000×1250, transparent), generated from /products
   lifestyle/            Client photography and banners (always shown uncropped, native ratio)

@@ -71,7 +71,7 @@ export function ProductCard({ product, priority = false, className }: { product:
         </ul>
         <div className="mt-auto pt-4">
           {lowStock ? <p className="mb-1.5 text-xs font-medium text-copper">Only {stock} left in stock</p> : null}
-          <div className="flex items-end justify-between gap-3">
+          <div className="flex flex-wrap items-end justify-between gap-x-3 gap-y-1">
             <Rating value={product.rating} count={product.reviewCount} />
             <p className="text-[0.9375rem] font-semibold tabular-nums">
               {multiVariant ? <span className="mr-1 text-xs font-normal text-ink-muted">From</span> : null}
