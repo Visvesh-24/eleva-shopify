@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { upcomingEvents } from "@/lib/experiences";
 import { formatPrice } from "@/lib/format";
 import { PageHeader } from "@/components/ui/PageHeader";
@@ -14,16 +13,6 @@ export const metadata: Metadata = {
   description: "Tequila tastings, pop-ups and seasonal events with Eleva Imports and Adriana Martinez in Toronto.",
   alternates: { canonical: "/events" },
 };
-
-/** Past-event gallery: supplied photography, shown uncropped (CSS columns keep native ratios). */
-const gallery = [
-  { src: "/images/lifestyle/adriana-barrel-room.jpg", alt: "Adriana among tequila barrels", width: 882, height: 1336 },
-  { src: "/images/lifestyle/eleva-huizar-banner.jpg", alt: "Reserva Huizar Plata and Cristalino decanters", width: 1254, height: 1254 },
-  { src: "/images/lifestyle/adriana-portrait.jpg", alt: "Adriana raising a glass in an agave field", width: 1334, height: 1628 },
-  { src: "/images/lifestyle/pechery-dubai-lifestyle.jpg", alt: "Pechery Dubai Style Chocolate Cream Liqueur", width: 1254, height: 1254 },
-  { src: "/images/lifestyle/gifting-lineup.png", alt: "Eleva gift bottle line-up", width: 2000, height: 1250 },
-  { src: "/images/lifestyle/trio-decanters.png", alt: "Reserva Huizar trio of decanters", width: 1600, height: 1250 },
-];
 
 const day = (d: string) => new Date(`${d}T12:00:00`);
 
@@ -71,18 +60,6 @@ export default function EventsPage() {
                 </div>
               </div>
             </FadeIn>
-          ))}
-        </ul>
-      </Section>
-
-      <Section tone="ivory" aria-labelledby="past-title">
-        <SectionHeading id="past-title" eyebrow="Past events" title="Moments from the cellar" />
-        {/* TODO(client): replace with real event photography */}
-        <ul className="columns-1 gap-5 sm:columns-2 lg:columns-3">
-          {gallery.map((g) => (
-            <li key={g.src} className="mb-5 break-inside-avoid overflow-hidden rounded-sm bg-white ring-1 ring-line">
-              <Image src={g.src} alt={g.alt} width={g.width} height={g.height} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 92vw" className="h-auto w-full" />
-            </li>
           ))}
         </ul>
       </Section>

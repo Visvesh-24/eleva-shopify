@@ -34,7 +34,7 @@ All prices are mock CAD values (the live site was not reachable from the build e
 - [ ] Masterclass sessions: dates, times, venues, prices ($85–$110 per guest) and **seats left** (drives "Only X seats left") are mock ⚠️
 - [ ] Masterclass format details (duration, group sizes, light bites, virtual kits) and "from" prices on the audience cards
 - [ ] Events: all three upcoming events, venues ("TBC"), prices and dates are mock ⚠️
-- [ ] Past-events gallery uses brand photography; replace with real event photos
+- [ ] Optional: add a past-events gallery to /events once real event photography exists
 - [ ] Corporate gift tiers: names, price ranges and minimums are mock ⚠️
 - [ ] Corporate proof timeline ("approve within 3 business days") is mock
 - [ ] Trade pricing is a flat 20% off retail (`TRADE_DISCOUNT`), illustrative only ⚠️
