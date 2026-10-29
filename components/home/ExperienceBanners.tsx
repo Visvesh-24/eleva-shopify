@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 
 export function MasterclassBanner() {
   return (
-    <section aria-labelledby="masterclass-title" className="bg-white py-20 md:py-28">
+    <section aria-labelledby="masterclass-title" className="bg-white py-14 md:py-24 lg:py-28">
       <div className="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <FadeIn className="order-2 mx-auto w-full max-w-sm lg:order-1 lg:max-w-[440px]">
           {/* Client photo, shown uncropped at its native ratio */}
@@ -53,7 +53,7 @@ export function MasterclassBanner() {
 export function TradeBanner() {
   return (
     <section aria-labelledby="trade-title" className="on-dark bg-charcoal text-white">
-      <div className="wrap grid items-center gap-10 py-20 md:py-24 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
+      <div className="wrap grid items-center gap-10 py-14 md:py-24 lg:grid-cols-[1.2fr_1fr] lg:gap-16">
         <FadeIn>
           <p className="eyebrow">For restaurants &amp; bars</p>
           <h2 id="trade-title" className="h-section mt-4 text-white">

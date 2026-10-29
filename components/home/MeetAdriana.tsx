@@ -9,7 +9,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
  */
 export function MeetAdriana() {
   return (
-    <section aria-labelledby="adriana-title" className="bg-white py-20 md:py-28">
+    <section aria-labelledby="adriana-title" className="bg-white py-14 md:py-24 lg:py-28">
       <div className="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <FadeIn className="mx-auto w-full max-w-md lg:max-w-[520px]">
           {/* Client photo, shown uncropped at its native ratio */}

@@ -23,12 +23,12 @@ export function RecipesTeaser({ recipes, products }: { recipes: Recipe[]; produc
           </Link>
         }
       />
-      <ul className="grid gap-8 md:grid-cols-3 md:gap-6">
+      <ul className="no-scrollbar relative scroll-px-5 md:scroll-px-0 -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0">
         {recipes.map((r, i) => {
           const hero = bySlug.get(r.heroProduct);
           const items = r.products.map((s) => bySlug.get(s)).filter((p): p is Product => Boolean(p));
           return (
-            <FadeIn as="li" key={r.slug} delay={i * 0.06} className="flex flex-col">
+            <FadeIn as="li" key={r.slug} delay={i * 0.06} className="flex w-[78%] shrink-0 snap-start flex-col md:w-auto">
               <Link href={`/recipes#${r.slug}`} className="group block">
                 <div className={cn("relative aspect-[5/4] overflow-hidden rounded-sm", r.tint)}>
                   {r.image ? (

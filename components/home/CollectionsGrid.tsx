@@ -25,11 +25,16 @@ export function CollectionsGrid({ collections }: { collections: Collection[] }) 
         title="Find your bottle"
         intro="Six ways into the world of agave, each chosen by a master."
       />
-      <ul className="no-scrollbar relative -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 lg:grid-cols-3">
+      <ul className="no-scrollbar relative scroll-px-5 md:scroll-px-0 -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-2 md:gap-6 md:overflow-visible md:px-0 lg:grid-cols-3">
         {collections.map((c, i) => (
           <FadeIn as="li" key={c.handle} delay={(i % 3) * 0.06} className="w-[78%] shrink-0 snap-start sm:w-[46%] md:w-auto">
             <Link href={`/collections/${c.handle}`} className="group block h-full">
               <div className={cn("relative aspect-[4/5] overflow-hidden rounded-sm", tones[c.tone])}>
+                {/* Bottles float gently (staggered); photography stays still */}
+                <div
+                  className={cn("absolute inset-0", c.image.fit !== "full" && "animate-float")}
+                  style={{ animationDelay: `${-i * 1.3}s` }}
+                >
                 <Image
                   src={c.image.src}
                   alt={c.image.alt}
@@ -44,6 +49,7 @@ export function CollectionsGrid({ collections }: { collections: Collection[] }) 
                         : "p-[9%]",
                   )}
                 />
+                </div>
               </div>
               <div className="flex items-start justify-between gap-4 pt-5">
                 <div className="min-w-0">

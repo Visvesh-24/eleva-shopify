@@ -29,7 +29,7 @@ export function ProductSpotlight({
 }) {
   const variant = product.variants[0];
   return (
-    <section aria-labelledby={`spotlight-${product.slug}`} className="bg-stone-50 py-20 md:py-28">
+    <section aria-labelledby={`spotlight-${product.slug}`} className="bg-stone-50 py-14 md:py-24 lg:py-28">
       <div className="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <FadeIn>
           <Image

@@ -23,7 +23,7 @@ export function Section({
     dark: "on-dark bg-charcoal text-white",
   };
   return (
-    <section id={id} aria-labelledby={labelledBy} className={cn("py-20 md:py-28", tones[tone], className)}>
+    <section id={id} aria-labelledby={labelledBy} className={cn("py-14 md:py-24 lg:py-28", tones[tone], className)}>
       <div className="wrap">{children}</div>
     </section>
   );
@@ -51,7 +51,7 @@ export function SectionHeading({
   return (
     <FadeIn
       className={cn(
-        "mb-12 md:mb-16",
+        "mb-9 md:mb-14",
         centred ? "mx-auto max-w-2xl text-center" : "flex flex-col gap-6 md:flex-row md:items-end md:justify-between",
         className,
       )}

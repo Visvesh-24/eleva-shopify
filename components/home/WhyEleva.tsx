@@ -29,12 +29,21 @@ export function WhyEleva() {
   return (
     <Section tone="ivory" aria-labelledby="why-title">
       <SectionHeading id="why-title" eyebrow="Why Eleva" title="A master's recommendation, not a liquor store" />
-      <ul className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="grid gap-3 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
         {reasons.map(({ icon: Icon, title, body }, i) => (
-          <FadeIn as="li" key={title} delay={i * 0.06} className="border-t border-copper-light/70 pt-7">
-            <Icon size={28} className="text-agave" />
-            <h3 className="mt-5 font-serif text-2xl">{title}</h3>
-            <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-soft">{body}</p>
+          <FadeIn
+            as="li"
+            key={title}
+            delay={i * 0.06}
+            className="group flex gap-4 rounded-md bg-white p-5 shadow-[0_1px_2px_rgb(28_27_25/0.04)] ring-1 ring-line transition-shadow duration-500 hover:shadow-card sm:flex-col sm:p-7"
+          >
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-copper-wash text-agave ring-1 ring-copper-light/40 transition-transform duration-500 group-hover:-translate-y-1">
+              <Icon size={22} />
+            </span>
+            <div>
+              <h3 className="font-serif text-[1.35rem] leading-tight sm:mt-1 sm:text-2xl">{title}</h3>
+              <p className="mt-1.5 text-[0.875rem] leading-relaxed text-ink-soft sm:mt-3 sm:text-[0.9375rem]">{body}</p>
+            </div>
           </FadeIn>
         ))}
       </ul>

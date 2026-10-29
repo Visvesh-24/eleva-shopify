@@ -3,6 +3,7 @@ import { getFeaturedCollections } from "@/lib/collections";
 import { recipes } from "@/lib/recipes";
 import { Hero } from "@/components/home/Hero";
 import { TrustStrip } from "@/components/home/TrustStrip";
+import { QuickPicks } from "@/components/home/QuickPicks";
 import { CorporateBanner } from "@/components/home/CorporateBanner";
 import { CollectionsGrid } from "@/components/home/CollectionsGrid";
 import { BestSellers } from "@/components/home/BestSellers";
@@ -39,6 +40,7 @@ export default async function HomePage() {
     <>
       <Hero />
       <TrustStrip />
+      <QuickPicks />
       <CorporateBanner />
       <CollectionsGrid collections={collections} />
       <BestSellers products={ordered} />
@@ -52,7 +54,7 @@ export default async function HomePage() {
             height: 1254,
           }}
           eyebrow="Dessert in a glass"
-          title="The Dubai chocolate everyone is talking about, as a cream liqueur"
+          title="Dubai chocolate, poured into a glass"
           moreHref="/collections/cream-liqueurs"
           moreLabel="Browse all cream liqueurs"
         />
