@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Eleva Imports design tokens (RGB triplets so Tailwind can apply opacity).
+ * Copper is tuned to the logo. Contrast (WCAG):
+ *   --c-copper on white      5.4:1  (AA for text + buttons)
+ *   --c-copper-pale on charcoal 8.3:1
+ *   --c-copper-light         decorative only (hairlines, icons)
+ */
+:root {
+  --c-ivory: 250 248 244;      /* #FAF8F4 page background */
+  --c-stone-50: 246 243 238;   /* #F6F3EE */
+  --c-stone-100: 241 238 232;  /* #F1EEE8 soft surfaces */
+  --c-stone-200: 231 226 218;  /* #E7E2DA */
+  --c-stone-300: 214 207 196;  /* #D6CFC4 */
+  --c-line: 228 222 211;       /* #E4DED3 hairlines */
+  --c-ink: 28 27 25;           /* #1C1B19 text */
+  --c-ink-soft: 87 83 77;      /* #57534D body copy */
+  --c-ink-muted: 107 101 92;   /* #6B655C small meta (5.4:1 on ivory) */
+  --c-charcoal: 28 27 25;      /* #1C1B19 dark sections */
+  --c-charcoal-800: 40 38 35;  /* #282623 */
+  --c-copper: 143 96 64;       /* #8F6040 primary accent */
+  --c-copper-dark: 122 82 54;  /* #7A5236 hover */
+  --c-copper-light: 201 162 126; /* #C9A27E hairlines */
+  --c-copper-pale: 210 174 138;  /* #D2AE8A accent on dark */
+  --c-copper-wash: 245 237 228;  /* #F5EDE4 tint */
+  --c-agave: 86 112 79;        /* #56704F trust icons only */
+
+  --header-h: 72px;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    scroll-padding-top: calc(var(--header-h) + 16px);
+  }
+  body {
+    @apply bg-ivory font-sans text-ink;
+    font-feature-settings: "ss01", "cv11";
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif text-ink;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  p { text-wrap: pretty; }
+  /* Let grid items shrink below their content width (prevents mobile overflow). */
+  .grid > * { min-width: 0; }
+  ::selection { background: rgb(var(--c-copper-light) / 0.35); }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--c-copper));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .on-dark :focus-visible { outline-color: rgb(var(--c-copper-pale)); }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-site px-5 md:px-8 xl:px-10; }
+
+  /* Small-caps label with wide tracking */
+  .eyebrow { @apply font-sans text-eyebrow font-semibold uppercase text-copper; }
+  .on-dark .eyebrow { @apply text-copper-pale; }
+
+  .h-display { @apply font-serif text-[2.6rem] leading-[1.02] sm:text-6xl lg:text-[4.75rem]; }
+  .h-section { @apply font-serif text-[2rem] leading-[1.1] sm:text-[2.6rem] lg:text-5xl; }
+  .h-card { @apply font-serif text-xl leading-snug sm:text-2xl; }
+
+  .hairline { @apply h-px w-full bg-line; }
+  .hairline-copper { @apply h-px bg-copper-light; }
+
+  /* Buttons: one primary (copper), one secondary (outline) */
+  .btn {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-2 rounded-sm px-7 text-[0.8125rem] font-semibold uppercase tracking-label transition-colors duration-300 ease-lux disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary { @apply btn bg-copper text-white hover:bg-copper-dark; }
+  .btn-secondary { @apply btn border border-ink/80 text-ink hover:bg-ink hover:text-white; }
+  .on-dark .btn-secondary { @apply border-white/70 text-white hover:bg-white hover:text-ink; }
+  .btn-sm { @apply min-h-[40px] px-5 text-[0.75rem]; }
+  .link-underline {
+    @apply relative inline-flex items-center gap-2 text-[0.8125rem] font-semibold uppercase tracking-label text-ink;
+  }
+  .link-underline::after {
+    content: "";
+    @apply absolute -bottom-1 left-0 h-px w-full origin-left bg-copper transition-transform duration-500 ease-lux;
+  }
+  .link-underline:hover::after { transform: scaleX(0.4); }
+
+  .chip { @apply inline-flex items-center rounded-full border border-line bg-white px-2.5 py-0.5 text-[0.6875rem] font-medium text-ink-soft; }
+
+  .field {
+    @apply block w-full rounded-sm border border-stone-300 bg-white px-4 py-3 text-[0.9375rem] text-ink placeholder:text-ink-muted/80 focus:border-copper focus:outline-none focus:ring-1 focus:ring-copper;
+  }
+
+  input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
+
+  /* Hide scrollbar but keep scroll for horizontal rails */
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Age gate: hidden once verified (attribute set by inline script before paint). */
+html[data-age-ok] #age-gate { display: none; }
+html:not([data-age-ok]) body { overflow: hidden; }
+
+/* Long-form content (policies, guides) */
+@layer components {
+  .prose-eleva { @apply max-w-3xl text-[1.0625rem] leading-relaxed text-ink-soft; }
+  .prose-eleva h2 { @apply mb-4 mt-12 font-serif text-3xl text-ink first:mt-0; }
+  .prose-eleva h3 { @apply mb-2 mt-8 font-serif text-2xl text-ink; }
+  .prose-eleva p { @apply mb-4; }
+  .prose-eleva ul { @apply mb-4 list-disc space-y-2 pl-5 marker:text-copper; }
+  .prose-eleva a { @apply text-ink underline underline-offset-4 hover:text-copper; }
+  .prose-eleva strong { @apply font-semibold text-ink; }
+}
