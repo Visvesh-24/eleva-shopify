@@ -1,37 +1,22 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckIcon } from "@/components/ui/Icons";
 import { FadeIn } from "@/components/ui/FadeIn";
-
-/** Fine-line tasting flight illustration (no photography needed). */
-function TastingFlight() {
-  const glasses = [
-    { label: "Blanco", fill: "#F3EEDF" },
-    { label: "Reposado", fill: "#EBD3A6" },
-    { label: "Añejo", fill: "#C98E52" },
-  ];
-  return (
-    <div aria-hidden className="flex items-end justify-center gap-6 sm:gap-10">
-      {glasses.map((g, i) => (
-        <div key={g.label} className="flex flex-col items-center">
-          <svg viewBox="0 0 80 150" className="h-36 w-auto sm:h-44" fill="none" stroke="rgb(var(--c-copper))" strokeWidth="1.2">
-            <path d="M18 8h44c2 34-6 58-22 62C24 66 16 42 18 8Z" fill="white" />
-            <path d={`M20.5 ${34 - i * 2}c10 3 29 3 39 0-1 18-8 32-19.5 35C28.5 66 21 52 20.5 ${34 - i * 2}Z`} fill={g.fill} stroke="none" />
-            <path d="M40 70v62M24 136h32" />
-          </svg>
-          <span className="mt-3 text-[0.625rem] font-semibold uppercase tracking-wide2 text-ink-soft">{g.label}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 export function MasterclassBanner() {
   return (
     <section aria-labelledby="masterclass-title" className="bg-white py-20 md:py-28">
       <div className="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-        <FadeIn className="order-2 rounded-sm bg-stone-100 px-6 py-14 lg:order-1 lg:py-20">
-          <TastingFlight />
-          <p className="mt-10 text-center font-serif text-xl italic text-ink-soft">Taste side by side. Discover your style.</p>
+        <FadeIn className="order-2 mx-auto w-full max-w-sm lg:order-1 lg:max-w-[440px]">
+          {/* Client photo, shown uncropped at its native ratio */}
+          <Image
+            src="/images/lifestyle/adriana-barrel-room.jpg"
+            alt="Adriana Martinez among tequila barrels in an aging cellar"
+            width={882}
+            height={1336}
+            sizes="(min-width: 1024px) 34vw, 90vw"
+            className="h-auto w-full rounded-sm"
+          />
         </FadeIn>
         <FadeIn delay={0.08} className="order-1 lg:order-2">
           <p className="eyebrow">Tequila &amp; mezcal masterclass</p>

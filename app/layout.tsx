@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: siteConfig.name,
     locale: "en_CA",
-    images: [{ url: "/images/lifestyle/gifting-lineup.png", width: 2000, height: 1250, alt: "Eleva Imports tequila collection" }],
+    images: [{ url: "/images/lifestyle/eleva-huizar-banner.jpg", width: 1254, height: 1254, alt: "Eleva Imports: a world of exceptional spirits" }],
   },
   twitter: { card: "summary_large_image" },
   icons: { icon: "/images/brand/logo-mark.png" },

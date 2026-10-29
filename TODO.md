@@ -8,13 +8,13 @@ All prices are mock CAD values (the live site was not reachable from the build e
 
 | Product | Mock price | Mock stock | Notes |
 | --- | --- | --- | --- |
-| Reserva Huizar Plata 750 ml | $129 | 24 | |
+| Reserva Huizar Plata 750 ml | $129 | 24 | Label reads 35% Alc. Vol. (updated) |
 | Reserva Huizar Plata Rosado 750 ml | $139 | 14 | |
 | Reserva Huizar Cristalino Reposado 750 ml | $149 | 18 | |
 | Reserva Huizar Extra Añejo Mini 100 ml | $49 | 30 | No PNG photo yet |
 | Reserva Huizar Tasting Collection 3 × 100 ml | $119 | 9 | No PNG photo yet; confirm the three expressions in the box |
-| Casa Cofradía Añejo 750 ml | $139 | 12 | |
-| Casa Cofradía Iguanas Talavera 750 ml | $219 | **4 (shows "Only 4 left")** ⚠️ | Confirm expression (Reposado?) and ABV (38%?) |
+| Casa Cofradía Añejo 750 ml | $139 | 12 | ⚠️ Label in the supplied banner reads **"Edición Especial, 20% Alc. Vol."**. At 20% it cannot be an añejo tequila (35% minimum). Confirm product name and type; the additive-free badge is withheld until then |
+| Casa Cofradía Iguanas Talavera 750 ml | $219 | **4 (shows "Only 4 left")** ⚠️ | Label reads Tequila Reposado, 40%, 100% agave azul (updated) |
 | Pechery Dubai Style Chocolate Cream Liqueur 700 ml | $54 | 20 | Confirm ABV and base spirit |
 | Pechery Pistachio Cream Liqueur 700 ml | $54 | 16 | Placeholder product, no photo |
 | Región Real Blanco 750 ml | $89 | 15 | Placeholder product, no photo; confirm expression |
@@ -43,7 +43,9 @@ All prices are mock CAD values (the live site was not reachable from the build e
 ## Photography and assets
 
 - [ ] PNG cut-outs for: Extra Añejo Mini, Tasting Collection gift box (only webp shots were supplied, and the brief says PNG only), Pechery Pistachio, Región Real, Hoyo 19, Riedel glasses
-- [ ] Portrait of Adriana (homepage "Meet Adriana", About page)
+- [x] Portraits of Adriana: supplied (agave field portrait → Meet Adriana; barrel room → Masterclass banner)
+- [x] Brand banners: supplied and shown **uncropped** (Eleva × Huizar banner → hero + share image; Pechery lifestyle → homepage spotlight, recipe card, Cream Liqueurs collection, Pechery gallery)
+- [ ] Casa Cofradía × Iguanas banner: shared in chat but the file did not come through. Add it to `public/images/lifestyle/` (or `/products`) and it will go on Gift & Share, Gift Sets and the Shop mega-menu card
 - [ ] Cocktail photography for recipes (cards currently show the bottle on a tinted panel)
 - [ ] Lifestyle and gifting photography (optional; current compositions are built from the bottle PNGs)
 - [ ] A flat/vector version of the logo would sharpen the footer and age gate (the 3D PNG is soft at small sizes)
@@ -51,6 +53,7 @@ All prices are mock CAD values (the live site was not reachable from the build e
 
 ## Copy and social proof
 
+- [ ] The pull quote "Great tequila should taste of the agave, the land and the people who made it." is placeholder copy, not a real quote from Adriana ⚠️
 - [ ] Adriana's biography and certification details (`components/home/MeetAdriana.tsx`); "working directly with family distilleries in Jalisco" needs confirming
 - [ ] Testimonials are invented placeholders (`lib/content.ts`) ⚠️
 - [ ] Press row uses fictional publication names (`lib/content.ts`). Replace with real press or remove ⚠️

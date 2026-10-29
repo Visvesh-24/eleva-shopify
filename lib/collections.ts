@@ -9,7 +9,7 @@ export type Collection = {
   /** Short line for cards and the collection hero. */
   tagline: string;
   intro: string;
-  image: { src: string; alt: string };
+  image: { src: string; alt: string; fit?: "contain" | "full" };
   /** Background tint behind cut-out bottle images on collection cards. */
   tone: "stone" | "ivory" | "copper";
   /** Featured on the homepage "Our Collections" grid. */
@@ -99,7 +99,7 @@ const collections: Collection[] = [
     title: "Cream Liqueurs",
     tagline: "Dessert in a glass.",
     intro: "Indulgent cream liqueurs for after dinner, coffee and celebration.",
-    image: { src: "/images/products/pechery-dubai-chocolate.png", alt: "Pechery Dubai Style Chocolate Cream Liqueur" },
+    image: { src: "/images/lifestyle/pechery-dubai-lifestyle.jpg", alt: "Pechery Dubai Style Chocolate Cream Liqueur with chocolate and pistachios", fit: "full" },
     tone: "copper",
     related: ["mix-and-pour", "gift-and-share"],
   },

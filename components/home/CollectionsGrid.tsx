@@ -37,7 +37,11 @@ export function CollectionsGrid({ collections }: { collections: Collection[] }) 
                   sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 78vw"
                   className={cn(
                     "object-contain transition-transform duration-700 ease-lux group-hover:scale-[1.05]",
-                    c.image.src.includes("/lifestyle/") ? "scale-[1.12] p-[3%] group-hover:scale-[1.17]" : "p-[9%]",
+                    c.image.fit === "full"
+                      ? "object-contain"
+                      : c.image.src.includes("/lifestyle/")
+                        ? "scale-[1.12] p-[3%] group-hover:scale-[1.17]"
+                        : "p-[9%]",
                   )}
                 />
               </div>

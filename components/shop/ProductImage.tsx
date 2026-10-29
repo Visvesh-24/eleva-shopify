@@ -35,7 +35,8 @@ export function ProductImage({
           sizes={sizes}
           priority={priority}
           className={cn(
-            "object-contain p-[6%] transition-transform duration-700 ease-lux",
+            "transition-transform duration-700 ease-lux",
+            image.fit === "full" ? "object-contain" : "object-contain p-[6%]",
             zoom && "group-hover:scale-[1.04]",
           )}
         />

@@ -24,7 +24,17 @@ export const tastingStyleLabels: Record<TastingStyle, string> = {
   sweet: "Sweet & indulgent",
 };
 
-export type ProductImage = { src: string; alt: string; width: number; height: number };
+export type ProductImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  /**
+   * "full" for supplied banners/photography: shown uncropped at native ratio
+   * (never cover-cropped). Cut-outs default to "contain" with padding.
+   */
+  fit?: "contain" | "full";
+};
 
 export type ProductVariant = {
   id: string;
@@ -82,7 +92,7 @@ const products: Product[] = [
     type: "Tequila",
     expression: "Blanco",
     size: "750 ml",
-    abv: "40%",
+    abv: "35%", // per label
     shortDescription: "Crisp, unaged blanco in a cobalt crystal decanter.",
     pitch:
       "The purest expression of Jalisco agave: bright, clean and peppery. Adriana's pick for a first sip of what additive-free blanco should taste like, and the bottle that steals the bar cart.",
@@ -248,7 +258,7 @@ const products: Product[] = [
     type: "Tequila",
     expression: "Añejo",
     size: "750 ml",
-    abv: "40%",
+    abv: "20%", // TODO(client): label reads "Edición Especial, 20% Alc. Vol."; confirm product type
     shortDescription: "Oak-aged añejo with caramel, cocoa and cinnamon.",
     pitch:
       "From one of Tequila's most respected family houses, a deeply satisfying añejo in a striking black bell bottle. A gentleman's sipper and a spectacular host gift.",
@@ -270,7 +280,7 @@ const products: Product[] = [
     ],
     variants: [{ id: "v-cofradia-anejo-750", sku: "CC-ANEJO-750", title: "750 ml", price: 139_00, stock: 12 }],
     collections: ["sip-neat", "gift-and-share", "corporate-gifts"],
-    badges: { additiveFree: true, notAtLCBO: true, giftReady: true },
+    badges: { notAtLCBO: true, giftReady: true }, // additive-free badge withheld until product type is confirmed
     bestSeller: true,
     pairsWithProducts: ["riedel-tequila-glass", "reserva-huizar-extra-anejo-mini"],
   },
@@ -282,7 +292,7 @@ const products: Product[] = [
     type: "Tequila",
     expression: "Reposado",
     size: "750 ml",
-    abv: "38%",
+    abv: "40%", // per label
     shortDescription: "Hand-painted Talavera ceramic. A true collector's piece.",
     pitch:
       "Each bottle is hand-painted ceramic in the Talavera tradition, so no two are exactly alike. It's the gift people keep long after the tequila is gone.",
@@ -334,6 +344,13 @@ const products: Product[] = [
     reviewCount: 73,
     images: [
       img("pechery-dubai-chocolate", "Pechery Dubai Style Chocolate Cream Liqueur with a chocolate splash"),
+      {
+        src: "/images/lifestyle/pechery-dubai-lifestyle.jpg",
+        alt: "Pechery Dubai Style Chocolate Cream Liqueur on travertine with chocolate and pistachios",
+        width: 1254,
+        height: 1254,
+        fit: "full",
+      },
     ],
     variants: [{ id: "v-pechery-dubai-700", sku: "PE-DUBAI-700", title: "700 ml", price: 54_00, stock: 20 }],
     collections: ["cream-liqueurs", "mix-and-pour", "gift-and-share"],

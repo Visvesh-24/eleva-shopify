@@ -1,4 +1,4 @@
-import { getAllProducts, getBestSellers } from "@/lib/products";
+import { getAllProducts, getBestSellers, getProduct } from "@/lib/products";
 import { getFeaturedCollections } from "@/lib/collections";
 import { recipes } from "@/lib/recipes";
 import { Hero } from "@/components/home/Hero";
@@ -6,6 +6,7 @@ import { TrustStrip } from "@/components/home/TrustStrip";
 import { CorporateBanner } from "@/components/home/CorporateBanner";
 import { CollectionsGrid } from "@/components/home/CollectionsGrid";
 import { BestSellers } from "@/components/home/BestSellers";
+import { ProductSpotlight } from "@/components/home/ProductSpotlight";
 import { GiftFinder } from "@/components/home/GiftFinder";
 import { WhyEleva } from "@/components/home/WhyEleva";
 import { MeetAdriana } from "@/components/home/MeetAdriana";
@@ -26,7 +27,12 @@ const BEST_SELLER_ORDER = [
 ];
 
 export default async function HomePage() {
-  const [products, bestSellers, collections] = await Promise.all([getAllProducts(), getBestSellers(12), getFeaturedCollections()]);
+  const [products, bestSellers, collections, pechery] = await Promise.all([
+    getAllProducts(),
+    getBestSellers(12),
+    getFeaturedCollections(),
+    getProduct("pechery-dubai-chocolate"),
+  ]);
   const ordered = [...bestSellers].sort((a, b) => BEST_SELLER_ORDER.indexOf(a.slug) - BEST_SELLER_ORDER.indexOf(b.slug));
 
   return (
@@ -36,6 +42,21 @@ export default async function HomePage() {
       <CorporateBanner />
       <CollectionsGrid collections={collections} />
       <BestSellers products={ordered} />
+      {pechery ? (
+        <ProductSpotlight
+          product={pechery}
+          banner={{
+            src: "/images/lifestyle/pechery-dubai-lifestyle.jpg",
+            alt: "Pechery Dubai Style Chocolate Cream Liqueur on travertine with chocolate bars and pistachios",
+            width: 1254,
+            height: 1254,
+          }}
+          eyebrow="Dessert in a glass"
+          title="The Dubai chocolate everyone is talking about, as a cream liqueur"
+          moreHref="/collections/cream-liqueurs"
+          moreLabel="Browse all cream liqueurs"
+        />
+      ) : null}
       <GiftFinder products={products} />
       <WhyEleva />
       <MeetAdriana />

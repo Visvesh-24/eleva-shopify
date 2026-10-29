@@ -11,6 +11,8 @@ export type Recipe = {
   level: "Easy" | "Intermediate";
   tint: string; // tailwind bg class for the card panel
   heroProduct: string; // product slug whose image represents the recipe
+  /** Optional photograph; overrides the bottle cut-out on the card. */
+  image?: { src: string; alt: string };
   products: string[]; // product slugs used ("Shop this recipe")
   ingredients: string[];
   steps: string[];
@@ -80,6 +82,7 @@ export const recipes: Recipe[] = [
     level: "Intermediate",
     tint: "bg-[#EFE5DA]",
     heroProduct: "pechery-dubai-chocolate",
+    image: { src: "/images/lifestyle/pechery-dubai-lifestyle.jpg", alt: "Pechery Dubai Style Chocolate Cream Liqueur with chocolate and pistachios" },
     products: ["pechery-dubai-chocolate", "reserva-huizar-cristalino-reposado"],
     ingredients: [
       "45 ml Pechery Dubai Style Chocolate Cream Liqueur",

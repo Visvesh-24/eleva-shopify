@@ -40,7 +40,8 @@ lib/
   recipes.ts, content.ts, navigation.ts, search.ts, format.ts
 public/images/
   products/             Product cut-outs (PNG, 1000×1250, transparent), generated from /products
-  lifestyle/            Multi-bottle compositions built from the same PNGs
+  lifestyle/            Client photography and banners (always shown uncropped, native ratio)
+                        + multi-bottle compositions built from the product PNGs
   brand/                logo-full.png (original), logo-mark.png (cropped "A" mark)
 products/               Original client images (source only, not served)
 ```

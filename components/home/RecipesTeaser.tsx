@@ -31,7 +31,15 @@ export function RecipesTeaser({ recipes, products }: { recipes: Recipe[]; produc
             <FadeIn as="li" key={r.slug} delay={i * 0.06} className="flex flex-col">
               <Link href={`/recipes#${r.slug}`} className="group block">
                 <div className={cn("relative aspect-[5/4] overflow-hidden rounded-sm", r.tint)}>
-                  {hero?.images[0] ? (
+                  {r.image ? (
+                    <Image
+                      src={r.image.src}
+                      alt={r.image.alt}
+                      fill
+                      sizes="(min-width: 768px) 30vw, 90vw"
+                      className="object-contain transition-transform duration-700 ease-lux group-hover:scale-105"
+                    />
+                  ) : hero?.images[0] ? (
                     <Image
                       src={hero.images[0].src}
                       alt=""

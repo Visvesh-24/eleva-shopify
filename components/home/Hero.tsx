@@ -42,19 +42,17 @@ export function Hero() {
           </p>
         </div>
 
+        {/* Client brand banner, shown uncropped at its native 1:1 ratio */}
         <div className="relative mx-auto w-full max-w-[560px] animate-fade-in [animation-delay:150ms] lg:max-w-none">
-          {/* Arched stone panel behind the bottles */}
-          <div aria-hidden className="absolute inset-x-[6%] bottom-[4%] top-[2%] rounded-t-full bg-gradient-to-b from-stone-100 to-stone-200/80" />
-          <div aria-hidden className="absolute inset-x-[6%] bottom-[4%] top-[2%] rounded-t-full ring-1 ring-copper-light/50 [margin:-10px]" />
-          <div aria-hidden className="absolute inset-x-[14%] bottom-[3%] h-6 rounded-[50%] bg-ink/10 blur-xl" />
+          <div aria-hidden className="absolute -inset-2.5 rounded-md border border-copper-light/50" />
           <Image
-            src="/images/lifestyle/trio-decanters.png"
-            alt="Reserva Huizar Rosado, Cristalino Reposado and Plata tequila decanters"
-            width={1600}
-            height={1250}
+            src="/images/lifestyle/eleva-huizar-banner.jpg"
+            alt="Eleva Imports, a world of exceptional spirits: Reserva Huizar Plata and Cristalino Reposado decanters"
+            width={1254}
+            height={1254}
             priority
-            sizes="(min-width: 1024px) 50vw, 92vw"
-            className="relative h-auto w-full"
+            sizes="(min-width: 1024px) 46vw, 92vw"
+            className="relative h-auto w-full rounded-sm shadow-card"
           />
         </div>
       </div>
